@@ -1,0 +1,23 @@
+grupo	muestra	v3.1.16	v3.1.17	v3.1.18	v3.1.19	v3.1.16	v3.1.17	v3.1.18	v3.1.19	Problemáticas	Causas
+COD_2122	muestra_1	B.1.1.7	Q.4	B.1.1.7	B.1.1.7	B.1.1.7	Q.4	B.1.1.7	B.1.1.7	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2137	muestra_1	B.1.1.7	B.1.1.7	B.1.1.7	B.1.1.7	B.1.1	None	None	None	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
+COD_2137	muestra_3	A.28	A.28	A.28	A.28	A	A	A	A	Diferencias con la referencia en la asignación de linaje en Viralrecon y no en los laboratorios	Protocolo bioinfo
+COD_2137	muestra_4	B.1.621	B.1.621	B.1.621	B.1.621	B.1	None	B.1	B.1	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
+COD_2111	muestra_5	P.1.12	P.1.12	P.1	P.1	P.1.12	P.1	P.1	P.1	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2114	muestra_5	P.1	P.1.14	P.1	P.1	P.1.15	P.1.15	P.1	P.1	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2116	muestra_5	P.1.14	P.1	P.1	P.1	P.1.14	P.1	P.1	P.1	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2123	muestra_5	P.1	P.1.14	P.1	P.1	P.1.14	P.1	P.1	P.1	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2124	muestra_5	None	None	None	None	P.1	P.1	P.1	P.1	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
+COD_2132	muestra_5	P.1	P.1.14	P.1.14	P.1.14	P.1	P.1	P.1	P.1	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2112	muestra_6	AY.9.2	AY.9.2	AY.9.2	AY.9.2	None	None	None	None	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
+COD_2132	muestra_6	AY.9.2	AY.9.2	AY.9.2	AY.9.2	None	None	None	None	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
+COD_2137	muestra_6	AY.43	AY.43	AY.43	AY.43	AY.75.1	B.1.617.2	B.1.617.2	B.1.617.2	Diferencias con la referencia en la asignación de linaje entre versiones de Pangolin	Version Pangolin
+COD_2106	muestra_8	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2126	muestra_8	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2132	muestra_8	AY.94	AY.94	AY.94	AY.94	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	Diferencias con la referencia en la asignación de linaje en Viralrecon y no en los laboratorios	Protocolo bioinfo
+COD_2139	muestra_8	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2106	muestra_9	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2123	muestra_9	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2132	muestra_9	AY.94	AY.94	AY.94	AY.94	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	Diferencias con la referencia en la asignación de linaje en Viralrecon y no en los laboratorios	Protocolo bioinfo
+COD_2139	muestra_9	B.1.617.2	B.1.617.2	B.1.617.2	B.1.617.2	AY.94	AY.94	AY.94	AY.94	Diferencias con la referencia en la asignación de linaje en los laboratorios y no con Viralrecon	Protocolo bioinfo
+COD_2137	muestra_10	AY.43	AY.43	AY.43	AY.43	None	None	None	None	Resultado None para la asignación de linaje	Protocolo bioinfo + Sequencing
