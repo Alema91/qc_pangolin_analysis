@@ -481,21 +481,3 @@ ggplot(data_resumen, aes(Causas, fill = Problemáticas)) +
         legend.text = element_text()
     )
 ggsave("plots/resumen_causas.png", width = 60, height = 40, units = "cm")
-
-
-## DATA nextclade
-
-data_nextclade <- read_xlsx("nextclade/nextclade_estadisticas.xlsx")
-index_column <- data.frame(
-    names = colnames(data_nextclade),
-    index = seq(1:length(colnames(data_nextclade)))
-)
-
-index <- c(1:6, 9, 10, 16:17, 19:21, 29:31)
-filter_nextclade <- data_nextclade[, index]
-
-# Muestra 1
-
-data_muestra_1 <- filter_nextclade[filter_nextclade$samples == 1, ]
-lab <- strsplit(data_muestra_1$substitutions[data_muestra_1$seqName == "COD_2122_1"], ",")[[1]]
-viralre <- strsplit(data_muestra_1$substitutions[data_muestra_1$seqName == "COD_2122_1_vr"], ",")[[1]]
