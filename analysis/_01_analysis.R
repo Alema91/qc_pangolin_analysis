@@ -331,9 +331,8 @@ ggexport(bar_plataformas, filename = "plots/plat_sequencing.png", ncol = 1, nrow
 multipage <- ggarrange(bar_pre, bar_mapping, bar_vcaller, bar_consensus, labels = c("A", "B", "C", "D"), heights = c(0.5, 0.5), widths = c(1, 1), ncol = 2, nrow = 2)
 ggexport(multipage, filename = "plots/multi_page_bioinfo.pdf")
 
-# Tabla
+# Tabla bioinfo
 
-# Wrap subtitle into multiple lines using strwrap()
 software_1 <- c(rep("ivar", 3))
 params <- c(
     "minimum quality for consensus calling = 20, minimum frequency to consider fixed a SNP = 0.8, minimum position depth = 30 (ambiguous base otherwise)",
@@ -352,24 +351,25 @@ QC_metrics <- c(
 )
 df_tabla_bioinfo_2 <- data.frame(software_2, QC_metrics)
 
-main_title <- "Generación de consensos"
-subtitle <- paste0(
-    "Los consensos se han generado por lo softwares ivar (ivar consensus, 50%), bcftools (bcftools consensus, 16.7%) y DRAGEN (16.7%).",
-    " Un 16.7% de los laboratorios han dejado vacío este campo."
-) %>%
-    strwrap(width = 80) %>%
-    paste(collapse = "\n")
+# main_title <- "Generación de consensos"
+# subtitle <- paste0(
+#    "Los consensos se han generado por lo softwares ivar (ivar consensus, 50%), bcftools (bcftools consensus, 16.7%) y DRAGEN (16.7%).",
+#    " Un 16.7% de los laboratorios han dejado vacío este campo."
+# ) %>%
+#    strwrap(width = 80) %>%
+#    paste(collapse = "\n")
 
-tabla_bioinfo_1 <- ggtexttable(df_tabla_bioinfo_1, theme = ttheme("light"))
-tabla_bioinfo_1 %>%
-    tab_add_title(text = subtitle, face = "plain", size = 10) %>%
-    tab_add_title(text = main_title, face = "bold", padding = unit(0.1, "line"))
+nombres_columnas_t1_bioinfo <- c("Software", "Parámetros")
+df_tabla_bioinfo_1 %>%
+    kbl(align = "rl", col.names = nombres_columnas_t1_bioinfo, "html") %>%
+    row_spec(0, bold = T) %>%
+    kable_classic(full_width = F, font_size = 15)
 
-ggexport(tabla_bioinfo_1, filename = "plots/table_bioinfo_1.png")
-
-tabla_bioinfo_2 <- ggtexttable(df_tabla_bioinfo_2, theme = ttheme("light"))
-
-ggexport(tabla_bioinfo_2, filename = "plots/table_bioinfo_2.png", width = 800, height = 500, verbose = FALSE)
+nombres_columnas_t2_bioinfo <- c("Software", "Métricas control de calidad")
+df_tabla_bioinfo_2 %>%
+    kbl(align = "rl", col.names = nombres_columnas_t2_bioinfo, "html") %>%
+    row_spec(0, bold = T) %>%
+    kable_classic(full_width = F, font_size = 15)
 
 # tabla resumen
 
@@ -388,7 +388,6 @@ data_ss %>%
     pack_rows("Protocolo bioinformático", 1, 16) %>%
     pack_rows("Secuenciación", 17, 18) %>%
     pack_rows("Versión Pangolin", 19, 24)
-
 
 data_ss %>%
     arrange(., Causas) %>%
