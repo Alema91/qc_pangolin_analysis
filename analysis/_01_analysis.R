@@ -392,24 +392,29 @@ data_ss %>%
 
 data_ss %>%
     arrange(., Causas) %>%
-    filter(., Causas == "Version Pangolin") %>%
+    filter(., Causas == "Versión Pangolin") %>%
     kbl(align = "rrrrrrrrrrll", col.names = nombres_columnas, "html") %>%
     kable_classic(full_width = F, font_size = 15) %>%
-    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2))
+    row_spec(0, bold = T) %>%
+    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2), bold = T)
+
+unique(data_ss$Causas)
 
 data_ss %>%
     arrange(., Causas) %>%
-    filter(., Causas == "Protocolo bioinfo") %>%
+    filter(., Causas == "Protocolo de análisis bioinformático") %>%
     kbl(align = "rrrrrrrrrrll", col.names = nombres_columnas, "html") %>%
     kable_classic(full_width = F, font_size = 15) %>%
-    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2))
+    row_spec(0, bold = T) %>%
+    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2), bold = T)
 
 data_ss %>%
     arrange(., Causas) %>%
     filter(., Causas == "Secuenciación") %>%
     kbl(align = "rrrrrrrrrrll", col.names = nombres_columnas, "html") %>%
     kable_classic(full_width = F, font_size = 15) %>%
-    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2))
+    row_spec(0, bold = T) %>%
+    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2), bold = T)
 
 
 # Ejemplos
