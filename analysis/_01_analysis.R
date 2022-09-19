@@ -398,8 +398,6 @@ data_ss %>%
     row_spec(0, bold = T) %>%
     add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2), bold = T)
 
-unique(data_ss$Causas)
-
 data_ss %>%
     arrange(., Causas) %>%
     filter(., Causas == "Protocolo de análisis bioinformático") %>%
@@ -416,6 +414,36 @@ data_ss %>%
     row_spec(0, bold = T) %>%
     add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 2), bold = T)
 
+# plots resumen
+data_ss$muestra <- factor(data_ss$muestra, levels = unique(data_ss$muestra))
+
+# 0073C299
+bar_causas <- data_ss %>%
+    count(muestra, Causas) %>%
+    ggbarplot(.,
+        x = "muestra", y = "n",
+        fill = "Causas",
+        ylab = "Laboratorios",
+        palette = "futurama",
+        label = TRUE, label.pos = "out", lab.pos = c("in"),
+        xlab = FALSE,
+        ggtheme = theme_minimal()
+    ) + rotate_x_text(angle = 45)
+
+bar_laboratorios <- data_ss %>%
+    count(grupo, Causas) %>%
+    ggbarplot(.,
+        x = "grupo", y = "n",
+        fill = "Causas",
+        ylab = "Laboratorios",
+        palette = "futurama",
+        label = TRUE, label.pos = "out", lab.pos = c("in"),
+        xlab = FALSE,
+        ggtheme = theme_minimal()
+    ) + rotate_x_text(angle = 45)
+
+multipage <- ggarrange(bar_causas, bar_laboratorios, labels = c("A", "B"), heights = c(0.5, 0.5), widths = c(1, 1), ncol = 1, nrow = 2)
+ggexport(multipage, filename = "plots/multi_page_causas.pdf")
 
 # Ejemplos
 
@@ -430,60 +458,3 @@ colnames(data_ejemplo_seq) <- columnas
 data_ejemplo_seq %>%
     kbl(align = "rrlllllllll", "html") %>%
     kable_classic(full_width = F, font_size = 15)
-
-## DATA resumen
-niveles_samples <- c(
-    "muestra_1",
-    "muestra_3",
-    "muestra_4",
-    "muestra_5",
-    "muestra_6",
-    "muestra_8",
-    "muestra_9",
-    "muestra_10"
-)
-
-data_resumen <- read.csv2("files/df_resumen.csv", sep = "\t")
-data_resumen$muestra <- factor(data_resumen$muestra, levels = niveles_samples)
-
-# geom_text(stat = "count", aes(label = ..count..)) +
-
-ggplot(data_resumen, aes(muestra, fill = Problemáticas)) +
-    geom_bar() +
-    guides(fill = guide_legend(title = "")) +
-    labs(y = "Causas", x = "", title = "") +
-    # geom_text(aes(label = ..count..), stat = "count", position = "fill", vjust = -5) +
-    geom_text(stat = "count", aes(label = after_stat(count)), size = 6) +
-    theme(
-        text = element_text(size = 24),
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(),
-        legend.title = element_text(),
-        legend.text = element_text()
-    )
-ggsave("plots/causas_pangolin.png", width = 60, height = 40, units = "cm")
-
-ggplot(data_resumen, aes(grupo, fill = Problemáticas)) +
-    geom_bar() +
-    guides(fill = guide_legend(title = "")) +
-    labs(y = "Causas", x = "", title = "", size = 12) +
-    geom_text(stat = "count", aes(label = ..count..), size = 6.5, vjust = -0.1) +
-    theme(
-        text = element_text(size = 24),
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(),
-        legend.title = element_text(),
-        legend.text = element_text()
-    )
-ggsave("plots/grupo_causas_pangolin.png", width = 60, height = 40, units = "cm")
-
-ggplot(data_resumen, aes(Causas, fill = Problemáticas)) +
-    geom_bar() +
-    guides(fill = guide_legend(title = "")) +
-    labs(y = "Causas", x = "", title = "", size = 12) +
-    geom_text(stat = "count", aes(label = ..count..), size = 6.5, vjust = -0.1) +
-    theme(
-        text = element_text(size = 24),
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), axis.text.y = element_text(),
-        legend.title = element_text(),
-        legend.text = element_text()
-    )
-ggsave("plots/resumen_causas.png", width = 60, height = 40, units = "cm")
