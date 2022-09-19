@@ -384,10 +384,11 @@ data_ss %>%
     select(., !Causas) %>%
     kbl(align = "rrrrrrrrrrll", col.names = nombres_columnas_t1, "html") %>%
     kable_classic(full_width = F, font_size = 15) %>%
-    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 1)) %>%
-    pack_rows("Protocolo bioinformático", 1, 16) %>%
-    pack_rows("Secuenciación", 17, 18) %>%
-    pack_rows("Versión Pangolin", 19, 24)
+    row_spec(0, bold = T) %>%
+    add_header_above(c(" " = 2, "Laboratorios" = 4, "Viralrecon" = 4, " " = 1), bold = T) %>%
+    pack_rows("Protocolo bioinformático", 1, 14) %>%
+    pack_rows("Secuenciación", 16, 17) %>%
+    pack_rows("Versión Pangolin", 18, 23)
 
 data_ss %>%
     arrange(., Causas) %>%
